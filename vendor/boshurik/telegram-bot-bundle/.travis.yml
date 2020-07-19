@@ -1,0 +1,12 @@
+language: php
+
+matrix:
+    include:
+        - php: 7.2
+          env: deps=low
+        - php: 7.3
+        - php: 7.4snapshot
+
+before_script:
+    - composer install -n
+    - if [ "deps" = "low" ]; then composer update --prefer-lowest --prefer-stable -n; fi;
