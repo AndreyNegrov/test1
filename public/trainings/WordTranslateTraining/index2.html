@@ -1,0 +1,73 @@
+<style>
+    .button-word {
+        background: #e7ebf0;
+        padding: 10px;
+        margin: 5px;
+        font-family: 'Trebuchet MS';
+        color: #6a6a6a;
+        font-size: 16pt;
+    }
+
+    #middle-section {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-evenly;
+        justify-content: center;
+    }
+
+    #card-picture {
+        display: none;
+    }
+
+    .button-word.error-word {
+        background: red;
+        color: #e7ebf0;
+    }
+    .button-word.finish-word {
+        background: #35c242;
+        color: #e7ebf0;
+    }
+
+    @media screen and ( max-height: 400px )
+    {
+        .button-word {
+            padding: 8px;
+            margin: 3px;
+            font-size: 15pt;
+        }
+    }
+
+</style>
+
+<audio id="error-player" src="../../trainings/General/sounds/error.mp3"></audio>
+
+<div id="train-container">
+    <div class="card">
+
+        <div id="life-container"></div>
+        <div id="training-number"></div>
+
+        <div class="picture-container">
+            <img class="card-picture-lock" src="../../trainings/General/images/lock.jpg">
+            <img id="card-picture" style="display: none">
+        </div>
+
+        <div class="card-content-container">
+            <div id="high-section"></div>
+            <div id="middle-section"></div>
+            <div id="low-section">
+                <div class="audio-wrap">
+                    <div class="audio-play">
+                        <audio id="audio-player"></audio>
+                    </div>
+                </div>
+                <img class="card-lock" src="../../trainings/General/images/lock.svg">
+                <div id="transcription"></div>
+            </div>
+        </div>
+
+    </div>
+    <button id="next-button">
+        <img src="../../trainings/General/images/right-arrow.png" class="next-arrow">
+    </button>
+</div>

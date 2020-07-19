@@ -1,0 +1,267 @@
+<meta name="viewport" content="width=100px, initial-scale=1, maximum-scale=1">
+
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-family: 'Trebuchet MS';
+        color: #6f6f6f;
+        height: 100%;
+    }
+
+    .zero-line {
+        border: 4px solid white;
+        border-bottom: none;
+        width: calc(100% - 8px);
+        height: 30px;
+        background: #688aa4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .menu-container {
+        width: calc(100% - 4px);
+        height: calc(100% - 38px);
+        border: 2px solid white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-line {
+        width: 100%;
+        display: flex;
+    }
+
+    .element-menu {
+        background: blue;
+        border: 2px solid white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-training {
+        background: #527ea7;
+    }
+
+    .menu-repeating {
+        background: #7c8fd1;
+    }
+
+    .menu-vocabulary {
+        background: #5682a3;
+        text-decoration: none;
+    }
+
+    .menu-ability {
+        background: #5896b6;
+    }
+
+    .menu-setting {
+        background: #7193b7;
+    }
+
+    .menu-about-us {
+        background: #67abae;
+    }
+
+    .menu-title {
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-family: 'Trebuchet MS';
+        font-size: 16pt;
+        margin-top: 12%;
+    }
+
+    .money-title {
+        color: white;
+        font-family: 'Trebuchet MS';
+        font-size: 11pt;
+    }
+
+    .menu-icon {
+        height: 80px;
+    }
+
+    .menu-icon-checked {
+        height: 80px;
+        display: none;
+    }
+
+    .money-icon {
+        height: 20px;
+        margin: 0 5px;
+    }
+
+    /*типа запрет ротации моб устройства*/
+    @media only screen and (min-width: 415px) and (max-width: 1279px) {
+        body {
+            display: none
+        }
+
+        html:before {
+            content: 'Переверните устройство в портретный режим';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+            z-index: 999;
+            text-align: center;
+            width: 80%;
+            height: 80px;
+            font-family: 'Trebuchet MS';
+            font-size: 16pt;
+            color: #6f6f6f;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<body onload="loadPage()">
+
+
+<div class="zero-line">
+    <div class="money-title">
+        1085
+    </div>
+    <img src="/training_menu/pictures/money.png" class="money-icon">
+</div>
+
+<div class="menu-container">
+    <div class="menu-line">
+        <a href="#" class="element-menu menu-training" onclick="startTraining(this)">
+            <img src="/training_menu/pictures/training4.png" class="menu-icon">
+            <div class="menu-title">
+                Тренажеры
+            </div>
+        </a>
+        <a href="#" class="element-menu menu-repeating" onclick="startRepeat(this)">
+            <img src="/training_menu/pictures/repeat.jpg" class="menu-icon">
+            <img src="/training_menu/pictures/repeat-green.jpg" class="menu-icon-checked">
+            <div class="menu-title">
+                Повторение
+            </div>
+        </a>
+    </div>
+
+    <div class="menu-line">
+        <a href="{{ path('application_vocabulary', {
+            'sessionId': session
+        }) }}" class="element-menu menu-vocabulary" onclick="clickItem(this)">
+            <img src="/training_menu/pictures/vocabulary.png" class="menu-icon">
+            <div class="menu-title">
+                Словарь
+            </div>
+        </a>
+        <div class="element-menu menu-ability">
+            <img src="/training_menu/pictures/ability4.png" class="menu-icon">
+            <div class="menu-title">
+                Способности
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-line">
+        <div class="element-menu menu-setting">
+            <img src="/training_menu/pictures/setting2.png" class="menu-icon">
+            <div class="menu-title">
+                Настройки
+            </div>
+        </div>
+        <div class="element-menu menu-about-us">
+            <img src="/training_menu/pictures/about.png" class="menu-icon">
+            <div class="menu-title">
+                О нас
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let trainingHandler = null;
+    let dataTraining = null;
+    let dataRepeat = null;
+    let link = null;
+
+    function loadPage() {
+
+        link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/trainings/General/css/generalStyle.css';
+        document.head.append(link);
+
+        new Promise(function (resolve) {
+            const script = document.createElement('script');
+            script.src = '/trainings/General/js/TrainingHandler.js';
+            script.onload = () => resolve();
+            document.head.append(script);
+        }).then(() => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '{{ path('training_data', {
+                'session': session
+            }) }}', true);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState !== 4) return;
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    dataTraining = response.training;
+                    dataRepeat = response.repeat;
+                }
+            };
+        });
+
+    }
+
+    function startTraining(elem) {
+
+        // elem.style.background = '#35c242';
+
+        const interval = setInterval(() => {
+            if (dataRepeat) {
+                clearInterval(interval);
+                if (dataTraining.items.length === 0) {
+                    elem.style.background = 'red';
+                }
+                trainingHandler = new TrainingHandler('{{ session }}', JSON.parse(dataTraining.items), dataTraining.trainings);
+                trainingHandler.nextTraining();
+            }
+        }, 10);
+    }
+
+    function startRepeat(elem) {
+
+        // elem.style.background = '#35c242';
+        //
+        // elem.getElementsByClassName('menu-icon')[0].style.display = 'none';
+        //
+        // elem.getElementsByClassName('menu-icon-checked')[0].style.display = 'block';
+
+        const interval = setInterval(() => {
+            if (dataRepeat) {
+                clearInterval(interval);
+                trainingHandler = new TrainingHandler('{{ session }}', dataRepeat.items, dataRepeat.trainings);
+                trainingHandler.nextTraining();
+            }
+        }, 10);
+    }
+
+</script>
+
+
+</body>
+
+
+

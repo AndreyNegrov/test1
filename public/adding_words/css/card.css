@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'HouseBrokenClean';
+    src: url('../fonts/HouseBrokenClean/HouseBrokenClean.eot');
+    src: local('../fonts/HouseBrokenClean'), local('HouseBrokenClean'),
+    url('../fonts/HouseBrokenCleanc/HouseBrokenClean.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HouseBrokenClean/HouseBrokenClean.woff') format('woff'),
+    url('../fonts/HouseBrokenClean/HouseBrokenClean.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HouseBrokenRough';
+    src: url('../fonts/HouseBrokenClean/HouseBrokenRough.eot');
+    src: local('../fonts/HouseBrokenClean'), local('HouseBrokenRough'),
+    url('../fonts/HouseBrokenClean/HouseBrokenRough.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HouseBrokenClean/HouseBrokenRough.woff') format('woff'),
+    url('../fonts/HouseBrokenClean/HouseBrokenRough.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ascent2Stardom';
+    src: url('../fonts/Ascent2Stardom/Ascent2Stardom.eot');
+    src: local('../fonts/Ascent2Stardom/Ascent2Stardom'), local('Ascent2Stardom'),
+    url('../fonts/Trebuchet_MS/TrebuchetMS-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Ascent2Stardom/Ascent2Stardom.woff') format('woff'),
+    url('../fonts/Ascent2Stardom/Ascent2Stardom.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chocolatecyr';
+    src: url('../fonts/Chocolatecyr/Chocolatecyr');
+    src: local('../fonts/Chocolatecyr/Chocolatecyr'), local('Chocolatecyr'),
+    url('../fonts/Trebuchet_MS/TrebuchetMS-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Chocolatecyr/Chocolatecyr.woff') format('woff'),
+    url('../fonts/Chocolatecyr/Chocolatecyr.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'LucidaConsole';
+    src: url('../fonts/LucidaConsole/LucidaConsole.eot');
+    src: local('LucidaConsole'), local('LucidaConsole'),
+    url('../fonts/LucidaConsole/LucidaConsole.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/LucidaConsole/LucidaConsole.woff') format('woff'),
+    url('../fonts/LucidaConsole/LucidaConsole.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ebe9e9;
+}
+
+.card {
+    width: 800px;
+    height: 606px;
+    background-color: #fff;
+    border: 1px solid #adb5bd!important;
+}
+
+.card-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 12px;
+}
+
+.images-wrap {
+    max-width: 698px;
+    height: 580px;
+    /* height: auto; */
+    background-size: cover;
+    margin-left: auto;
+    margin-right: 12px;
+    /* margin-top: 10px; */
+    border-radius: 50px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.images-wrap img {
+    max-width: 100%;
+}
+
+.english-word-container {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    width: 585px;
+    height: 135px;
+    border: 1px solid #211e1b63;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.box-shadow-2 {
+    position: absolute;
+    top: 30px;
+    left: 56px;
+    width: 504px;
+    height: 135px;
+    box-shadow: 0px 5px 4px -3px rgba(0, 0, 0, 0.17);
+}
+
+
+.letter-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.letter-wrap {
+    display: flex;
+    position: absolute;
+    top:61px;
+}
+
+.letter-item {
+    position: relative;
+    /* top: -533px; */
+    left: 46px;
+    width: 40px;
+    height: 57px;
+    margin-right: 6px;
+}
+
+.letter {
+    position: absolute;
+    top: -22px;
+    left: -4px;
+    /* transform: translate(-50%, -50%); */
+    font-family: 'HouseBrokenRough';
+    font-size: 75px;
+    color: #fff;
+}
+
+.letter-transcription {
+    position: relative;
+    top: 66px;
+    left: 281px;
+    font-family: "Lucida Console";
+    font-size: 24px;
+    color: #fff;
+}
+
+.level {
+    position: absolute;
+    top: 426px;
+    left: -39px;
+    font-size: 49px;
+    font-family: 'Ascent2Stardom', arial;
+    transform: rotate(-90deg);
+}
+
+.translate-shadow {
+    position: absolute;
+    top: 479px;
+    right: 34px;
+    border: 1px solid #6d6060;
+    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.17)
+}
+
+.translate-box {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.translate-letter {
+    font-family: 'Chocolatecyr';
+    font-size: 37px;
+    color: #fff;
+    line-height: 71px;
+    margin: -6px 20px 0 20px;
+    z-index: 3;
+    position: relative;
+}
+
+.card-wrap {
+    position: relative;
+    vertical-align: top;
+}
+
+.training-image {
+    width: 696px;
+    height: 579px;
+    overflow: hidden;
+}
+
+.acx {
+    position: fixed;
+    top: 80px;
+    z-index: -9999;
+    left: calc(50% - 348px);
+}

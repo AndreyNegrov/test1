@@ -1,0 +1,32 @@
+webHooks:
+  path: /hooks
+  controller: App\Controller\BotController::webHooks
+
+send:
+  path: /send
+  controller: App\Controller\BotController::send
+
+training:
+  resource: App\Controller\TrainingController
+  type: annotation
+  prefix:   /training/
+
+adding_words:
+  resource: App\Controller\AddingWordsController
+  type: annotation
+  prefix:   /adding_words/
+
+edit_words:
+  resource: App\Controller\EditWordsController
+  type: annotation
+  prefix:   /edit_words/
+
+menu:
+  resource: App\Controller\MenuController
+  type: annotation
+  prefix:   /menu/
+
+vocabulary:
+  resource: App\Controller\VocabularyController
+  type: annotation
+  prefix:   /vocabulary/

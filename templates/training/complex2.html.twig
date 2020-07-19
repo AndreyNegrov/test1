@@ -1,0 +1,12 @@
+<script src="/trainings/General/js/TrainingHandler.js"></script>
+<link rel="stylesheet" href="/trainings/General/css/generalStyle.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<script>
+    const trainingHandler = new TrainingHandler('{{ session }}', JSON.parse({{ items|json_encode|raw }}));
+    trainingHandler.nextTraining();
+</script>
+
+
+

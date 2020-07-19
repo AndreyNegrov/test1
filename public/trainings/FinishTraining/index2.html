@@ -1,0 +1,69 @@
+<style>
+    #card-picture {
+        height: 100px;
+    }
+
+    .card-content-container {
+        height: calc(100% - 78px);
+    }
+
+    #high-section {
+        height: 110%;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+    }
+
+    .red-word {
+        color: red;
+        line-height: 25pt;
+    }
+
+    .green-word {
+        color: #35c242;
+        line-height: 25pt;
+    }
+
+    .card {
+        border: 2px solid #35c242;
+    }
+
+    .success-icon, .fail-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 0 10px;
+        background-size: 100%;
+    }
+
+    .success-icon {
+        border: 2px solid #35c242;
+        background: url(../../trainings/ListeningTraining/images/success.jpg) no-repeat 50% 50%;
+    }
+
+    .fail-icon {
+        border: 2px solid red;
+        background: url(../../trainings/ListeningTraining/images/fail.jpg) no-repeat 50% 50%;
+    }
+
+    .word-item {
+        display: flex;
+        margin-bottom: 8%;
+    }
+
+</style>
+
+<div id="train-container">
+    <div class="card">
+
+        <div id="life-container"></div>
+        <div id="training-number"></div>
+
+        <div class="picture-container">
+            <img id="card-picture" src="../../trainings/FinishTraining/images/smile.jpg">
+        </div>
+        <div class="card-content-container">
+            <div id="high-section"></div>
+        </div>
+    </div>
+</div>

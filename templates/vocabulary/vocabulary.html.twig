@@ -1,0 +1,627 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+<style>
+
+    .t0 .footer-tab {
+        border-top-color: #848894;
+    }
+
+    .t1 .footer-tab {
+        border-top-color: #7a91a3;
+    }
+
+    .t2 .footer-tab {
+        border-top-color: #7f8f8e;
+    }
+
+    .t3 .footer-tab {
+        border-top-color: #a6bb9c;
+    }
+
+    .tm .footer-tab {
+        border-top-color: #4caf50;
+
+    }
+
+    .t0 .header-tab {
+        border-bottom-color: #848894;
+    }
+
+    .t1 .header-tab {
+        border-bottom-color: #7a91a3;
+    }
+
+    .t2 .header-tab {
+        border-bottom-color: #7f8f8e;
+    }
+
+    .t3 .header-tab {
+        border-bottom-color: #a6bb9c;
+    }
+
+    .tm .header-tab {
+        border-bottom-color: #4caf50;
+    }
+
+    .t0 .body-tab {
+        background: #848894;
+    }
+
+    .t1 .body-tab {
+        background: #7a91a3;
+    }
+
+    .t2 .body-tab {
+        background: #7f8f8e;
+    }
+
+    .t3 .body-tab {
+        background: #a6bb9c;
+    }
+
+    .tm .body-tab {
+        background: #4caf50;
+    }
+
+    .word-container {
+        position: absolute;
+        top: 4%;
+        left: 55px;
+        height: 92%;
+        overflow-x: auto;
+        width: calc(100% - 110px);
+        font-size: 13pt;
+        display: none;
+    }
+
+    .tabs {
+        right: 36px;
+        font-size: 14px;
+    }
+
+    @media (min-height: 496px) {
+        .tabs {
+            right: 37px;
+        }
+
+        .word-container {
+            left: 58px;
+            width: calc(100% - 114px);
+        }
+    }
+
+    @media (min-height: 544px) {
+        .tabs {
+            right: 38px;
+            font-size: 15px;
+        }
+
+        .word-container {
+            left: 61px;
+            width: calc(100% - 118px);
+        }
+    }
+
+    @media (min-height: 590px) {
+        .tabs {
+            right: 39px;
+        }
+
+        .word-container {
+            left: 64px;
+            width: calc(100% - 124px);
+        }
+    }
+
+    @media (min-height: 636px) {
+        .tabs {
+            right: 40px;
+        }
+
+        .word-container {
+            left: 67px;
+            width: calc(100% - 130px);
+        }
+    }
+
+    @media (min-height: 681px) {
+        .tabs {
+            right: 41px;
+        }
+
+        .word-container {
+            left: 70px;
+            width: calc(100% - 133px);
+        }
+    }
+
+    @media (min-height: 740px) {
+        .tabs {
+            right: 42px;
+        }
+
+        .word-container {
+            left: 73px;
+            width: calc(100% - 136px);
+        }
+    }
+
+    @media (min-height: 774px) {
+        .tabs {
+            right: 43px;
+        }
+
+        .word-container {
+            left: 76px;
+            width: calc(100% - 140px);
+        }
+    }
+
+    @media (min-height: 818px) {
+        .tabs {
+            right: 44px;
+        }
+
+        .word-container {
+            left: 79px;
+            width: calc(100% - 144px);
+        }
+    }
+
+    @media (min-height: 873px) {
+        .tabs {
+            right: 45px;
+        }
+
+        .word-container {
+            left: 85px;
+        }
+    }
+
+    html, body {
+        padding: 0;
+        margin: 0;
+        font-family: 'Trebuchet MS';
+        color: #6f6f6f;
+        height: 100%;
+    }
+
+    body {
+        background: #e7eaef;
+    }
+
+    .top-corner {
+        top: 1.6%;
+        left: 3%;
+    }
+
+    .top-corner-right {
+        top: 1.6%;
+        transform: scaleX(-1);
+        right: 26px;
+    }
+
+    .bottom-corner {
+        bottom: 1.6%;
+        transform: scale(1, -1);
+        left: 3%;
+    }
+
+    .bottom-corner-right {
+        bottom: 1.6%;
+        transform: scale(-1, -1);
+        right: 26px;
+    }
+
+    .container-left {
+        left: 3%;
+        background: url(/vocabulary/images/notebook_element.jpg) repeat-y 0 0;
+    }
+
+    .container-right {
+        background: url(/vocabulary/images/notebook_element_right.jpg) repeat-y 0 0;
+        transform: scaleX(-1);
+        right: 26px;
+    }
+
+    .word-container i {
+        font-size: 12pt;
+    }
+
+    .top-line {
+        top: 1.6%;
+    }
+
+    .bottom-line {
+        bottom: 1.6%;
+        transform: scale(1, -1);
+    }
+
+    .container-right, .container-left {
+        height: 95.4%;
+        width: 50%;
+        top: 2.3%;
+        background-color: white;
+    }
+
+    .corner {
+        background: url(/vocabulary/images/top-corner.jpg) no-repeat 0 0;
+        height: 21.5%;
+        z-index: -1;
+        width: 50%;
+        background-color: white;
+    }
+
+    .top-line, .bottom-line {
+        background: url(/vocabulary/images/n-line.jpg) repeat-x 0 0;
+        left: 9%;
+        height: 21.5%;
+        z-index: 0;
+        width: calc(85% - 30px);
+    }
+
+    .top-corner, .top-corner-right, .container-left, .container-right, .bottom-corner, .bottom-corner-right, .top-line, .bottom-line {
+        position: absolute;
+        background-size: auto 4%;
+    }
+
+    .tabs {
+        position: absolute;
+        z-index: 3;
+        top: calc(2% - 44px);
+        height: 100%;
+    }
+
+    .tab-container {
+        height: 15.5%;
+        margin-top: 15px;
+        position: absolute;
+    }
+
+    .header-tab {
+        border: 30px solid transparent;
+        border-bottom: 10px solid green;
+        border-left: 0 solid green;
+    }
+
+    .body-tab {
+        width: 30px;
+        height: 100%;
+        writing-mode: vertical-lr;
+        text-align: center;
+        color: white;
+        line-height: 30px;
+    }
+
+    .footer-tab {
+        border: 30px solid transparent;
+        border-top: 10px solid green;
+        border-left: 0 solid green;
+    }
+
+
+    .tm {
+        position: absolute;
+        bottom: 5%;
+    }
+
+    .tm a {
+        text-decoration: none;
+    }
+
+    .t0 {
+        top: 0;
+    }
+
+    .t1 {
+        top: 17%;
+    }
+
+    .t2 {
+        top: 34%;
+    }
+
+    .t3 {
+        top: 51%;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 500px;
+        max-height: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .active .header-tab {
+        border-bottom-color: #ff9800;
+    }
+
+    .active .body-tab {
+        background: #ff9800;
+        color: #4f4e4e;
+    }
+
+    .active .footer-tab {
+        border-top-color: #ff9800;
+    }
+
+    .active {
+        z-index: 3;
+    }
+
+    .clickable {
+        height: 16.5%;
+        position: absolute;
+    }
+
+    .stub {
+        position: absolute;
+        width: 30px;
+        height: 100%;
+        margin-top: 52px;
+        z-index: 4;
+    }
+
+    .active-word-container {
+        display: block;
+    }
+
+    .click-icon {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        transform: rotate(-90deg);
+        font-size: 21pt;
+        font-family: 'Tahoma';
+    }
+
+    .line-word-container {
+        position: relative;
+    }
+
+    .b-popup {
+        width: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        display: none;
+    }
+
+    .b-popup .b-popup-content {
+        margin: 40px auto 0 auto;
+        width: 300px;
+        padding-bottom: 7px;
+        background-color: white;
+        border-radius: 5px;
+        z-index: 100;
+    }
+
+    .b-popup-content {
+        text-align: center;
+    }
+
+    .popup-word {
+        font-size: 15pt;
+        padding: 17px 0;
+    }
+
+    .popup-refuse {
+        color: #4680b3;
+        font-size: 12pt;
+        padding: 11px;
+    }
+
+    .popup-item {
+        color: #4680b3;
+        font-size: 12pt;
+        border-bottom: 1px solid #e1e1e1;
+        margin: 0 28px;
+        padding: 11px;
+    }
+
+    .first-popup-item {
+        border-top: 1px solid #e1e1e1;
+    }
+
+    #ct0 .click-icon {
+        display: none;
+    }
+
+    .ct1 .repeat-p-i, .ct1 .learned-p-i, .ct1 .safe-p-i, .ct2 .learned-p-i, .ct3 .safe-p-i {
+        display: none;
+    }
+
+</style>
+
+<body>
+
+<div class="container">
+
+    <div class="top-corner corner"></div>
+    <div class="top-line"></div>
+    <div class="top-corner-right corner"></div>
+    <div class="container-left">
+    </div>
+    <div class="container-right"></div>
+    <div class="bottom-corner corner"></div>
+    <div class="bottom-line"></div>
+    <div class="bottom-corner-right corner"></div>
+
+    <div class="tabs">
+        <div class="tab-container t0 active" id="t0">
+            <div class="header-tab"></div>
+            <div class="body-tab">Изучение</div>
+            <div class="footer-tab"></div>
+        </div>
+        <div class="tab-container t1" id="t1">
+            <div class="header-tab"></div>
+            <div class="body-tab">Повторение</div>
+            <div class="footer-tab"></div>
+        </div>
+        <div class="tab-container t2" id="t2">
+            <div class="header-tab"></div>
+            <div class="body-tab">Изучено</div>
+            <div class="footer-tab"></div>
+        </div>
+        <div class="tab-container t3" id="t3">
+            <div class="header-tab"></div>
+            <div class="body-tab">Сейф</div>
+            <div class="footer-tab"></div>
+        </div>
+        <div class="tab-container tm" href="{{ path('application_menu', {
+            'sessionId': session
+        }) }}">
+            <div class="header-tab"></div>
+            <a class="body-tab" href="{{ path('application_menu', {
+                'sessionId': session
+            }) }}">Меню</a>
+            <div class="footer-tab"></div>
+        </div>
+
+        <div class="clickable t0">
+            <div class="stub" onclick="clickTab('t0')"></div>
+        </div>
+
+        <div class="clickable t1">
+            <div class="stub" onclick="clickTab('t1')"></div>
+        </div>
+
+        <div class="clickable t2">
+            <div class="stub" onclick="clickTab('t2')"></div>
+        </div>
+
+        <div class="clickable t3">
+            <div class="stub" onclick="clickTab('t3')"></div>
+        </div>
+
+    </div>
+
+    <div class="word-container active-word-container" id="ct0">
+        {% for uitem in user.userItems %}
+            {% if uitem.status == 0 %}
+                <div class="line-word-container" onclick="openPopup(this)" data-id="{{ uitem.id }}"
+                     data-word="{{ uitem.item.english|lower }}">
+                    <div class="item-word"><b>{{ uitem.item.english|lower }}</b> <br> <i>{{ uitem.item.word }}</i></div>
+                    <div class="click-icon">…</div>
+                    <hr>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="word-container" id="ct1">
+        {% for uitem in user.userItems %}
+            {% if uitem.status == 1 %}
+                <div class="line-word-container" onclick="openPopup(this)" data-status="{{ uitem.status }}"
+                     data-id="{{ uitem.id }}" data-word="{{ uitem.item.english|lower }}">
+                    <div class="item-word"><b>{{ uitem.item.english|lower }}</b> <br> <i>{{ uitem.item.word }}</i></div>
+                    <div class="click-icon">…</div>
+                    <hr>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="word-container" id="ct2">
+        {% for uitem in user.userItems %}
+            {% if uitem.status == 2 %}
+                <div class="line-word-container" onclick="openPopup(this)" data-id="{{ uitem.id }}"
+                     data-word="{{ uitem.item.english|lower }}">
+                    <div class="item-word"><b>{{ uitem.item.english|lower }}</b> <br> <i>{{ uitem.item.word }}</i></div>
+                    <div class="click-icon">…</div>
+                    <hr>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="word-container" id="ct3">
+        {% for uitem in user.userItems %}
+            {% if uitem.status == 3 %}
+                <div class="line-word-container" onclick="openPopup(this)" data-id="{{ uitem.id }}"
+                     data-word="{{ uitem.item.english|lower }}">
+                    <div class="item-word"><b>{{ uitem.item.english|lower }}</b> <br> <i>{{ uitem.item.word }}</i></div>
+                    <div class="click-icon">…</div>
+                    <hr>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+<div class="b-popup" onclick="closePopup()">
+    <div class="b-popup-content">
+        <div class="popup-word">complain</div>
+        <div class="popup-item first-popup-item" onclick="moveWord(0)">Переместить в "Изучение"</div>
+        <div class="popup-item repeat-p-i" onclick="moveWord(1)">Переместить в "Повторение"</div>
+        <div class="popup-item learned-p-i" onclick="moveWord(2)">Переместить в "Изучено"</div>
+        <div class="popup-item safe-p-i" onclick="moveWord(3)">Переместить в "Сейф"</div>
+        <div class="popup-refuse">Отмена</div>
+    </div>
+</div>
+
+<script>
+
+    let id = null;
+    let item = null;
+
+    function openPopup(elem) {
+        const type = elem.parentNode.getAttribute('id');
+
+        if (type === 'ct0') return;
+
+        id = elem.getAttribute('data-id');
+        item = elem;
+
+        const popup = document.getElementsByClassName('b-popup')[0];
+        popup.classList.remove('ct0');
+        popup.classList.remove('ct1');
+        popup.classList.remove('ct2');
+        popup.classList.remove('ct3');
+        popup.classList.add(type);
+
+        document.getElementsByClassName('popup-word')[0].innerHTML = elem.getAttribute('data-word');
+        document.getElementsByClassName('b-popup')[0].style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementsByClassName('b-popup')[0].style.display = 'none';
+    }
+
+    function moveWord(direction) {
+        document.getElementById('ct' + direction).prepend(item);
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/vocabulary/move/{{ session }}/' + id + '/' + direction, true);
+        xhr.send();
+    }
+
+    function clickTab(classNameElement) {
+        const elements = document.getElementsByClassName("active");
+        while (elements.length) {
+            elements[0].classList.remove('active');
+        }
+
+        const elem = document.getElementById(classNameElement);
+        elem.classList.add('active');
+
+        const c_elements = document.getElementsByClassName("active-word-container");
+        while (c_elements.length) {
+            c_elements[0].classList.remove('active-word-container');
+        }
+
+        const c_elem = document.getElementById('c' + classNameElement);
+        c_elem.classList.add('active-word-container');
+    }
+</script>
+
+</body>
+
+
+

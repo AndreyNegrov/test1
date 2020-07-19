@@ -1,0 +1,94 @@
+<style>
+    .result-word {
+        width: 50px;
+        height: 31px;
+        border-bottom: 1px dashed #d8d6d6;
+        margin: 0 4px;
+        text-align: center;
+        font-family: 'Trebuchet MS';
+        font-size: 17pt;
+        color: #6f6f6f;
+        line-height: 24pt;
+    }
+
+    .choosing-word-wrap {
+        position: relative;
+        margin: 5px;
+        color: #6a6a6a;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .choosing-word {
+        width: 100%;
+        background-color: #fff;
+        font-family: 'Trebuchet MS';
+        font-size: 15pt;
+        color: #6a6a6a;
+        border: none;
+        line-height: 43px;
+        padding: 0 11px;
+        box-sizing: border-box;
+    }
+
+    .card-lock {
+        margin-left: 10px;
+        display: block;
+        height: 49px;
+    }
+
+    #middle-section {
+        visibility: hidden;
+    }
+
+    .finish-word #middle-section{
+        visibility: visible;
+    }
+
+    .blot {
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-image: url(../../trainings/ListeningHardTraining/images/blot.jpg);
+        width: 150px;
+        margin: 0 auto;
+        background-position: center;
+    }
+
+    .finish-word .blot {
+        background: unset;
+        width: 100%;
+    }
+
+</style>
+
+<audio id="error-player" src="../../trainings/General/sounds/error.mp3"></audio>
+<audio id="audio-player"></audio>
+
+<div id="train-container">
+    <div class="card-keyboard">
+
+        <div id="life-container"></div>
+        <div id="training-number"></div>
+
+        <div class="picture-container">
+            <img id="card-picture">
+        </div>
+
+        <div class="card-content-container">
+            <div id="high-section"></div>
+
+            <div class="blot">
+                <p id="middle-section"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button id="next-button">
+        <img src="../../trainings/General/images/right-arrow.png" class="next-arrow">
+    </button>
+
+    <div id="footer-section"></div>
+</div>
+

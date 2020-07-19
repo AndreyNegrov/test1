@@ -1,0 +1,29 @@
+{% extends "adding_words/base.html.twig" %}
+
+{% block body %}
+    <div class="acx">
+        <div class="picture-markup training-image"></div>
+    </div>
+    <div class="main-word-container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-new-word-tab" data-toggle="tab" href="#nav-new-word"
+                   role="tab" aria-controls="nav-new-word" aria-selected="true">Новое слово</a>
+                <a class="nav-item nav-link" id="nav-all-worlds-tab" data-toggle="tab" href="#nav-all-words" role="tab"
+                   aria-controls="nav-all-words" aria-selected="false">Все слова</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-new-word" role="tabpanel" aria-labelledby="nav-new-word-tab">
+                    {% include 'adding_words/create.html.twig' %}
+                </div>
+                <div class="tab-pane fade" id="nav-all-words" role="tabpanel" aria-labelledby="nav-all-worlds-tab">
+                    {% include 'adding_words/list.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/adding_words/js/script.js"></script>
+{% endblock %}

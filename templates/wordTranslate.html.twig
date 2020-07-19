@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div class="container">
+    <b class="word">{{ item.word }}</b>
+    <br>
+    {% for otherItem in otherItems %}
+        <button onclick="{% if otherItem.item.english == item.english %}success(this){% else %}fail(this){% endif %}" style="width: 300px; height: 30px;">{{ otherItem.item.english }}</button>
+        <br>
+        <br>
+    {% endfor %}
+    <img id="statusImg" src="/images/failed.png">
+</div>
+
+
+
+<form id="finish-form" action="{{ path('finishWordTranslate') }}">
+    <input type="hidden" name="status" id="statusInput" value="1">
+    <input type="hidden" name="user" value="{{ user.telegramId }}">
+    <input type="hidden" name="userItem" value="{{ userItem.id }}">
+    <input type="submit" class="submit" value="Завершить">
+</form>
+
+</body>
+</html>
+
+
+<style>
+    body {
+        background: green;
+        padding: 20px;
+        height: calc(100% - 40px);
+        margin: 0;
+    }
+
+    .container {
+        width: 100%;
+        height: 50%;
+        background: white;
+        text-align: center;
+        position: relative;
+    }
+
+    .word {
+        font-family: "Courier New";
+        font-size: 24px;
+        line-height: 3;
+    }
+
+    #result {
+        font-family: "Courier New";
+        font-size: 24px;
+        line-height: 3;
+    }
+
+    .litters {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .litter-container {
+        margin-top: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .litter {
+        width: 100%;
+        height: 100%;
+        background: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .litter b {
+        font-family: "Courier New";
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #finish-form {
+        bottom: 40px;
+        width: calc(100% - 40px);
+        position: absolute;
+        justify-content: center;
+        display: none;
+    }
+    .submit {
+        width: 150px;
+        height: 45px;
+        background: red;
+        color: white;
+        font-family: "Courier New";
+        font-size: 24px;
+    }
+    #statusImg {
+        width: 200px;
+        position: absolute;
+        bottom: 20px;
+        display: none;
+    }
+</style>
+
+<script>
+
+    window.word = '{{ item.english }}';
+
+    function fail(element) {
+        document.getElementById('statusImg').style.display = 'block';
+        document.getElementById('statusInput').value = 0;
+
+        element.style.background = 'red';
+        element.style.color = 'white';
+    }
+
+    function success(element) {
+        document.getElementById('finish-form').style.display = 'flex';
+
+        if (document.getElementById('statusInput').value == '1') {
+            document.getElementById('statusImg').style.display = 'block';
+            document.getElementById('statusImg').src = '/images/success.png';
+            document.getElementById('statusImg').style.width = '70px';
+            document.getElementById('statusImg').style.marginLeft = '20px';
+        }
+
+        element.style.background = 'green';
+        element.style.color = 'white';
+    }
+
+</script>

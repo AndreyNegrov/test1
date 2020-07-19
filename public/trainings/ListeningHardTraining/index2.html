@@ -1,0 +1,180 @@
+<style>
+    .card-lock {
+        margin-left: 10px;
+        display: block;
+    }
+
+    #transcription {
+        display: none;
+    }
+
+    .result-word-container {
+        display: flex;
+        justify-content: center;
+        font-family: 'Trebuchet MS';
+        width: 100%;
+    }
+
+    .result-word-input {
+        margin: -2px 0 -2px 71px;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        font-family: 'Trebuchet MS';
+        font-size: 18pt;
+        letter-spacing: 0.5pt;
+        width: 30%;
+        text-transform: lowercase;
+        text-align: center;
+        line-height: 28px;
+        height: 45px;
+    }
+
+    .confirm-button {
+        width: 35px;
+        height: 35px;
+        border: 2px solid #5682a3;
+        border-radius: 50%;
+        margin: 0 16px;
+        background: url(../../trainings/ListeningTraining/images/confirm-button2.jpg) no-repeat 50% 50%;
+        background-size: 100%;
+    }
+
+    .reply-button {
+        width: 35px;
+        height: 35px;
+        border: 2px solid #5682a3;
+        border-radius: 50%;
+        margin: 0 16px;
+        background: url(../../trainings/ListeningTraining/images/turn.png) no-repeat 58% 47%;
+        background-size: 78%;
+        display: none;
+    }
+
+    .answer-container {
+        display: none;
+        justify-content: center;
+        font-size: 20pt;
+        color: #35c242;
+        text-align: center;
+        font-family: 'Trebuchet MS';
+        height: 41px;
+        line-height: 31pt;
+    }
+
+    .finish-word .answer-container {
+        display: flex;
+    }
+
+    .finish-word .result-word-container {
+        display: none;
+    }
+
+    .error-word.finish-word .result-word-container {
+        display: flex;
+    }
+    .error-word.finish-word .answer-container {
+        display: none;
+    }
+
+    .wrong-word {
+        color: #ff0000;
+        text-decoration: line-through;
+        font-family: 'Trebuchet MS';
+        text-align: center;
+    }
+
+    .result-words {
+        margin-left: 71px;
+        height: 45px;
+        display: none;
+        margin-top: -3px;
+    }
+
+    .error-word .reply-button, .error-word .result-words {
+        display: block;
+    }
+
+    .error-word .confirm-button, .error-word .result-word-input {
+        display: none;
+    }
+
+    .right-word {
+        color: #35c242;
+        text-align: center;
+    }
+
+    .wrong-word, .right-word {
+        font-size: 18pt;
+    }
+
+    #high-section {
+        width: 100%;
+    }
+
+    #middle-section {
+        visibility: hidden;
+    }
+
+    .finish-word #middle-section {
+        visibility: visible;
+    }
+
+    .blot {
+        background-size: 100% 100%;
+        background-image: url(../../trainings/ListeningHardTraining/images/blot.jpg);
+        margin: 0 auto;
+        width: 160px;
+    }
+
+    .finish-word .blot {
+        background: unset;
+        width: 100%;
+    }
+
+</style>
+
+<audio id="error-player" src="../../trainings/General/sounds/error.mp3"></audio>
+
+<div id="train-container">
+    <div class="card-keyboard">
+
+        <div id="life-container"></div>
+        <div id="training-number"></div>
+
+        <div class="picture-container">
+            <img class="card-picture-lock" src="../../trainings/General/images/lock.jpg">
+            <img id="card-picture" style="display: none">
+        </div>
+
+        <div class="card-content-container">
+            <div id="high-section">
+                <div class="result-word-container">
+                    <div class="result-words">
+                        <div class="right-word"></div>
+                        <div class="wrong-word"></div>
+                    </div>
+                    <input type="text" class="result-word-input">
+                    <div class="reply-button"></div>
+                    <div class="confirm-button"></div>
+                </div>
+                <div class="answer-container"></div>
+            </div>
+            <div class="blot">
+                <p id="middle-section"></p>
+            </div>
+            <div id="low-section">
+                <div class="audio-wrap">
+                    <div class="audio-play">
+                        <audio id="audio-player"></audio>
+                    </div>
+                </div>
+                <img class="card-lock" src="../../trainings/General/images/lock.svg">
+                <div id="transcription"></div>
+            </div>
+        </div>
+    </div>
+    <button id="next-button">
+        <img src="../../trainings/General/images/right-arrow.png" class="next-arrow">
+    </button>
+</div>

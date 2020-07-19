@@ -1,0 +1,122 @@
+{% extends "adding_words/base.html.twig" %}
+
+{% block body %}
+
+    <form action="{{ path('edit_word') }}" method="post">
+        <input type="hidden" name="id" value="{{ item.id }}">
+        <div class="word-container">
+            <div class="column">
+                <div class="input-container">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="english-word" name="english-word"
+                               placeholder="Word in English" value="{{ item.english }}" readonly>
+                    </div>
+                </div>
+
+                <div class="info-block" style="display: block">
+
+                    <div class="translate-container">
+                        <div class="form-group">
+                            <label for="translate-select">Перевод:</label>
+                            <input class="form-control" id="translate-select" value="{{ item.word }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="explain-container">
+                        <div class="form-group">
+                            <label for="explain-word">Угадай слово по описанию(описание на русском):</label>
+                            <input type="text" class="form-control" id="explain-word" name="explain"
+                                   value="{{ addition_info.explain }}">
+                        </div>
+                    </div>
+
+                    <div class="explain-container">
+                        <div class="form-group">
+                            <label for="explain-word-english">Угадай слово по описанию(описание на английском):</label>
+                            <input type="text" class="form-control" id="explain-word-english" name="explain-english"
+                            {% if addition_info['explain-english'] is defined%} value="{{ addition_info['explain-english'] }}" {% endif %}>
+                        </div>
+                    </div>
+
+                    <div class="synonyms-container">
+                        <label>Русские синонимы:</label>
+                        <div class="form-group" id="synonyms-inputs">
+                            {% for synonym in addition_info['russian-synonyms'] %}
+                                <div class='input-group mb-2'>
+                                    <input class="form-control si" name="russian-synonyms[]" value="{{ synonym }}">
+                                    <div class="input-group-prepend">
+                                        <div class="btn btn-danger" onclick="removeElem(this)">-</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="btn btn-success add-button" onclick="addSynonyms()">+</div>
+                    </div>
+
+                    <br>
+
+                    <div class="english-synonyms-container">
+                        <label>Английские синонимы:</label>
+                        <div class="form-group" id="english-synonyms-inputs">
+                            {% for synonym in addition_info['english-synonyms'] %}
+                                <div class='input-group mb-2'>
+                                    <input class="form-control si" name="english-synonyms[]" value="{{ synonym }}">
+                                    <div class="input-group-prepend">
+                                        <div class="btn btn-danger" onclick="removeElem(this)">-</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="btn btn-success add-button" onclick="addEnglishSynonyms()">+</div>
+                    </div>
+
+                    <br>
+
+                    <div class="examples-container">
+                        <label style="margin-bottom: 0">Примеры употребления:</label>
+                        <div class="form-group" id="examples-inputs">
+                            {% for synonym in addition_info['examples'] %}
+                                <br>
+
+                                <div>
+                                    <div class='input-group mb-2'>
+                                        <input class="form-control si" name="english-examples[]"
+                                               value="{{ synonym.english }}">
+                                        <div class="input-group-prepend">
+                                            <div class="btn btn-danger" onclick="removeExElem(this)">-</div>
+                                        </div>
+                                    </div>
+                                    <input class="form-control si" name="russian-examples[]"
+                                           value="{{ synonym.russian }}">
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                        <div class="btn btn-success add-button" onclick="addExamplesInputs()">+</div>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <input class="btn btn-success" type="submit" value="Отредактировать">
+
+                    <br>
+                    <br>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <script src="/adding_words/js/editScript.js"></script>
+
+    <style>
+        .input-container, .info-block, .spinner-container {
+            width: 600px;
+        }
+    </style>
+{% endblock %}
+

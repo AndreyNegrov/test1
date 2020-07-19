@@ -1,0 +1,23 @@
+{% for item in items %}
+    {% if item.id != 26 %}
+        <br>
+        <form action="{{ path('remove_word') }}" method="post">
+            <input type="hidden" name="id" value="{{ item.id }}">
+            <div style="border-top: 1px solid #c6c6c6; padding: 10px;">
+                <div>
+                    <b>{{ item.english }}</b> [<i>{{ item.transcription }}</i>] <span>{{ item.word }}</span>
+                </div>
+                <br>
+                <img src="{{ item.card }}" width="300">
+                <br>
+                <br>
+                <a href="{{path('render_edit_word', {'itemId' : item.id})}}" target="_blank" class="btn btn-success">Редактировать</a>
+
+                <span class="btn btn-danger block-button" {% if item.status %}style="display: none" {% endif %} onclick="blockWord({{ item.id }}, this)">Заблокировать</span>
+                <span class="btn btn-dark unblock-button" {% if item.status == false %}style="display: none"{% endif %} onclick="unblockWord({{ item.id }}, this)">Разблокировать</span>
+
+                <input type="submit" class="btn btn-danger" value="Удалить">
+            </div>
+        </form>
+    {% endif %}
+{% endfor %}

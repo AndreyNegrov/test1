@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "core-folio-246307",
+  "private_key_id": "591753c000f1a94f5f8d7ca8bce13caa74acef44",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDBa9KwHNUtzmpU\nuLKvF5dtWYOuPm/SIsWTtjbJR0IuqtwruU6EJiPPFBZdblUCJ9kUgKf4w9oNdMCc\nngrV3An6pqe34H2iIEubktyd4Hv/N600tlWxEEBsO/Kvwp7W2Z8CPpyZScNrN1Zc\nqOupP2uPYIS36tvFb/N8GQ9n31TC6/FX+IvyemuCIy8888mjPqBhSdxnpCX4odrt\n9b0TnHrxK4w1DQpEhfLKmVN/1QojNZOHkTOxILR9+T5k1eyIPeJ2W9qRVfcQEiV4\nIMDMPjdc5VJHGhpSYv/fzrOCoU+pkUBBf9hL7LRyaixHDPQSeFqQYv+A5HPb26K7\nMR+kVegDAgMBAAECggEAEdT49ZeS58gx8WGdx5qrMT+hbjz/XiYqhPW1k1Toexjx\nd258GJ7TilHVxgNX/vzhfIxn7/1OaxMqdsXzRcgle2BF8iPWMU486jjd8ggyJlNh\nuoxc1hgjeFcGhsGwlyo1CKXxFgjA5W+SnLROFaptJijF05bpcAhkMDq3OuJSFC43\nI0865a/J8S7620kwb5LBpprM/petACJ0N4N97Q3cqA9Ctpypf8oo3YtEPFcVSB3h\niWVWafwttrJt7d6Ow+gxyACPloq/uUJcabA3PRlJfrA04uavC2P2x+OcRHVqMJVh\nmA4wjhZmSBRrpq+0p7nVApWG8z4Q++flMYJV9HlZgQKBgQD5gA7JlUOQ1Kyd4LFB\n+dGgsA2rG55T3eOeZ7l+MJMtUTX2zxLIaailfdXIA1nsekIQO2NIoAsWaSlnb7jj\nbJcqMBiKHOpzwZLr47z01rHCXuCSlA5KE/kAl3XtF7UsCk37H8rUOn0dZ9JQTQsh\n/W9Y/NNrwlt5fqjxJQdV4MvyYwKBgQDGdcS4ElwSJCUhffwJtKVMlCZua5o3zPmK\nJdA5x4E5CUt6M8DMeH7fqJ3YRwnrRgKcfvyF1Llu2AwQOqoZ3et1ETN8N/xoRjBY\ngfl+SBAz6bGNURrQlGHwi0ZhPCjJHqU43kNafccyGHX5gQaCXaMIVoZx5n1GNSnV\niqiVBWlV4QKBgFdGmWWghhMKohtT9w2aIt8v1ogtUBQMQUwvAm8G9OTcTKE6TFq4\nwxqoyvh9W55iIevlqlRET7yWKrqZFTbQzIwgaOUfOlAlvYwwjO+kjmfsomgDzH/T\nPr4bPVAjg+eU7zRSKbRVhWCc6a/XU3afXazmO9qtESyNxvEbv9YlnZH7AoGARZwL\nKvEtoCNTbsLsw068Z/bS4AoX5pibskv/FDUY6zOKaMt8RXvCLJrM+o44OXCt+8xC\nsIJjpDBdUtfwz+/Z5Y7p+xj8DGsKDBFSvGt0W3ENmN6oxB43mBKR1gsu1xRLqX20\nLCpP0w9nWeNasCE9zO/kalEJAbYl/UOMS/DA+KECgYAKXt2UOlv4ntZJcZAhwL5C\nl/RX2VRFX2DqStOjLq8aH6IQOA7b8amSxnjNVsCsfB5u9l0QNb02s1v8JpCJqKtI\nte6YMvF40LYYVgoMwwXmg+JVXYmDgbomid5TXPUToP1VdUPjB2jE1yAHvXLVlxXp\nDCBjQ8C7O1Q6w5zhfwL5Eg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "andreyniahrou@core-folio-246307.iam.gserviceaccount.com",
+  "client_id": "117867291560918575743",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/andreyniahrou%40core-folio-246307.iam.gserviceaccount.com"
+}

@@ -1,0 +1,165 @@
+<form action="{{ path('create_word') }}" method="post" onsubmit="return false;" id="form-new-word">
+    <div class="word-container">
+        <div class="column">
+            <div class="input-container">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="english-word" name="english-word"
+                           placeholder="Word in English">
+                    <div class="input-group-prepend">
+                        <div class="btn btn-success" onclick="searchWord()">Найти</div>
+                    </div>
+                </div>
+            </div>
+            <div class="spinner-container">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <audio controls id="voice" autoplay="autoplay"></audio>
+
+                <div class="part-speech-container">
+                    <div class="form-group">
+                        <label for="part-speech">Часть речи:</label>
+                        <select class="form-control" id="part-speech" name="part-speech" onchange="changePartSpeech()"></select>
+                    </div>
+                </div>
+
+                <div class="transcription-container">
+                    <div class="form-group">
+                        <label for="transcription-input">Транскрипция:</label>
+                        <input class="form-control" type="text" id="transcription-input" name="transcription"
+                               onkeyup="changeTranscription()">
+                    </div>
+                </div>
+
+                <div class="translate-container">
+                    <div class="form-group">
+                        <label for="translate-select">Перевод:</label>
+                        <select class="form-control" id="translate-select" name="translate" onchange="changeTranslate()"></select>
+                    </div>
+                </div>
+
+                <div class="explain-container">
+                    <div class="form-group">
+                        <label for="explain-word">Угадай слово по описанию:</label>
+                        <input type="text" class="form-control" id="explain-word" name="explain">
+                    </div>
+                </div>
+
+                <div class="synonyms-container">
+                    <label>Синонимы:</label>
+                    <div class="form-group" id="synonyms-inputs"></div>
+                    <div class="btn btn-success add-button" onclick="addSynonyms()">+</div>
+                </div>
+
+                <div class="english-synonyms-container">
+                    <label>Английские синонимы:</label>
+                    <div class="form-group" id="english-synonyms-inputs"></div>
+                    <div class="btn btn-success add-button" onclick="addEnglishSynonyms()">+</div>
+                </div>
+
+                <div class="examples-container">
+                    <label>Примеры употребления:</label>
+                    <div class="form-group" id="examples-inputs"></div>
+                    <div class="btn btn-success add-button" onclick="addExamplesInputs()">+</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="image-input-container">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="image-path" placeholder="Путь к изображению">
+                    <div class="input-group-prepend">
+                        <div class="btn btn-success" onclick="changePicture()">Применить</div>
+                    </div>
+                </div>
+            </div>
+            <div class="spinner-image-container">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <div class="picture-block">
+
+                <div style="width: 800px; display: inline-block;">
+                    <img id="picture-crop" style="max-width: 100%;">
+                </div>
+
+                <br><br>
+
+                <div class="card-wrap" style="display: inline-block">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="images-wrap picture-markup"></div>
+                            <div class="english-word-container">
+                                <div class="letter-box"></div>
+                            </div>
+
+                            <div class="letter-wrap">
+                                <div class="letter-item">
+                                    <div class="letter" id="picture-word"></div>
+                                </div>
+                                <div class="letter-transcription" id="letter-transcription-position">
+                                    <span>[</span><span id="picture-transcription"></span><span>]</span>
+                                </div>
+                            </div>
+
+                            <div class="level">
+                                level 1
+                            </div>
+
+                            <div class="translate-shadow">
+                                <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                                    <div class="translate-letter" id="picture-translate">
+                                    </div>
+                                    <div class="translate-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <b>Контейнер английского слова:</b>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="span2 slider" value="" data-slider-min="0"
+                               data-slider-max="760" data-slider-step="1" data-slider-value="585"
+                               data-slider-id="RC" id="R" data-slider-tooltip="hide"
+                               data-slider-handle="square"/>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <b>Положение транскрипции:</b>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="span2 slide-transcription" value="" data-slider-min="0"
+                               data-slider-max="700" data-slider-step="1" data-slider-value="281"
+                               data-slider-id="RC" data-slider-tooltip="hide"
+                               data-slider-handle="square"/>
+                    </div>
+                </div>
+
+                <br>
+                <div id="color-picker" data-color="rgba(0, 0, 0, 0.4)"></div>
+
+                <br>
+                <div class="btn btn-success" onclick="create()">Создать</div>
+                <br><br>
+
+                <input type="hidden" name="card">
+                <input type="hidden" name="picture">
+
+            </div>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Форма добавления слов для изучения{% endblock %}</title>
+    <script src="jquery.js"></script>
+    <script src="cropper/cropper.js"></script>
+    <script type="text/javascript" src="html2canvas.min.js"></script>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="cropper/cropper.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}
+
+    <h2 style="margin: 39px 20px 0 20px;">Добавление слова в базу данных</h2>
+
+    <br>
+    <br>
+    <br>
+    <input type="button" onclick="startRecord()" value="Начать запись">
+    <input type="button" id="start" value="Старт">
+    <input type="button" id="stop" value="Стоп">
+
+    <br>
+    <br>
+    <form action="{{ path('addItem') }}" method="post" style="margin-left: 20px" onsubmit="return false;"
+          id="form-new-picture">
+        <input type="text" placeholder="World" onkeyup="changeWord(this)" name="english" required>
+        <br>
+        <br>
+        <input type="text" placeholder="Слово" onkeyup="changeTranslation(this)" name="word" required>
+        <br>
+        <br>
+        <input type="text" placeholder="Транскрипция" onkeyup="changeTranscription(this)" name="sound" required>
+        <br>
+        <br>
+        <input type="text" placeholder="Путь к картинке" onblur="changePicture(this)" required>
+        <input type="hidden" name="picture" id="picture">
+        <button onclick="abc()">Сохранить</button>
+    </form>
+
+    <br>
+    <div class="card-wrap" style="display: inline-block">
+        <div class="card">
+            <div class="card-content">
+                <div class="images-wrap picture-markup">
+                    <img src="" id="picture-markup">
+                </div>
+                <div class="box-shadow">
+                    <div class="letter-box"></div>
+                </div>
+
+                <div class="letter-wrap">
+                    <div class="letter-item">
+                        <div class="letter" id="picture-word"></div>
+                    </div>
+                    <div class="letter-transcription" id="letter-transcription-position">
+                        <span>[</span><span id="picture-transcription"></span><span>]</span>
+                    </div>
+                </div>
+
+                <div class="level">
+                    level 1
+                </div>
+
+                <div class="translate-shadow">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <div class="translate-letter" id="picture-translate">
+                        </div>
+                        <div class="translate-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="width: 800px; display: inline-block; margin-left: 20px;">
+        <img src="" id="picture-crop" style="margin-left: 20px;max-width: 100%;">
+    </div>
+
+
+
+    <br>
+
+    {% for item in items %}
+        {% if item.id != 26 %}
+            <br>
+            <form action="{{ path('removeItem') }}" method="post">
+                <input type="hidden" name="id" value="{{ item.id }}">
+                <div style="border: 1px solid black; padding: 10px;">
+                    <div>
+                        <b>{{ item.english }}</b> [<i>{{ item.transcription }}</i>] <span>{{ item.word }}</span>
+                    </div>
+                    <br>
+                    <img src="{{ item.picture }}" width="300">
+                    <br>
+                    <input type="submit" value="Удалить">
+                </div>
+            </form>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}
+{% block javascripts %}{% endblock %}
+
+<script>
+
+
+
+    function changePicture(elem) {
+        $.ajax({
+            url: "/downloadImage",
+            data: "url=" + elem.value,
+            success: function (msg) {
+                var $image = $('#pictures-crop');
+                var cropper = $image.data('cropper');
+                cropper.replace('/abc.jpg');
+            }
+        });
+    }
+
+    function changeWord(elem) {
+        const leftsTranscription = {
+            '3': '85px',
+            '4': '133px',
+            '5': '178px',
+            '6': '220px',
+            '7': '278px',
+            '8': '281px',
+            '9': '325px',
+            '10': '367px',
+            '11': '367px'
+        };
+        document.getElementById('pictures-word').innerHTML = elem.value;
+        document.getElementById('letter-transcription-position').style.left = leftsTranscription[elem.value.length];
+    }
+
+    function changeTranslation(elem) {
+        document.getElementById('pictures-translate').innerHTML = elem.value;
+    }
+
+    function changeTranscription(elem) {
+        document.getElementById('pictures-transcription').innerHTML = elem.value;
+    }
+
+    function abc() {
+        const a = document.getElementsByClassName('card')[0];
+
+        document.getElementsByClassName('translate-letter')[0].style.margin = '-21px 20px 15px 20px';
+
+        html2canvas(a, {}).then(function (canvas) {
+            console.log(canvas.toDataURL());
+
+            document.getElementById('pictures').value = canvas.toDataURL();
+            // document.getElementById('form-new-picture').submit();
+        });
+
+        document.getElementsByClassName('translate-letter')[0].style.margin = '-6px 20px 0 20px';
+
+    }
+
+
+    var $image = $('#pictures-crop');
+
+    $image.cropper({
+        aspectRatio: 696 / 579,
+        preview: '.pictures-markup',
+        crop: function (event) {
+            // console.log(event.detail.x);
+            // console.log(event.detail.x);
+            // console.log(event.detail.y);
+            // console.log(event.detail.width);
+            // console.log(event.detail.height);
+            // console.log(event.detail.rotate);
+            // console.log(event.detail.scaleX);
+            // console.log(event.detail.scaleY);
+        }
+    });
+
+    function startRecord() {
+        navigator.mediaDevices.getUserMedia({audio: true})
+            .then(successCallback)
+            .catch(failureCallback);
+    }
+
+    function successCallback(stream) {
+        navigator.mediaDevices.getUserMedia({ audio: true})
+            .then(stream => {
+                const mediaRecorder = new MediaRecorder(stream);
+                let voice = [];
+                document.querySelector('#start').addEventListener('click', function(){
+                    mediaRecorder.start();
+                });
+
+                mediaRecorder.addEventListener("dataavailable",function(event) {
+                    voice.push(event.data);
+                });
+
+                document.querySelector('#stop').addEventListener('click', function(){
+                    mediaRecorder.stop();
+                });
+
+                mediaRecorder.addEventListener("stop", function() {
+                    const voiceBlob = new Blob(voice, {
+                        type: 'audio/wav'
+                    });
+
+                    console.log(voiceBlob);
+                });
+            });
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

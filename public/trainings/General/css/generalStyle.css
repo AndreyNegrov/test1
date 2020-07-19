@@ -1,0 +1,316 @@
+html {
+    line-height: 1.15;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.card-picture-lock {
+    margin: 0 auto;
+    width: 100px;
+    height: 83.188px;
+    border: 2px solid #d5d5d5;
+    border-radius: 5px;
+    display: block;
+}
+
+#train-container {
+    background: #e7ebf0;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+}
+
+#life-container {
+    display: flex;
+    position: absolute;
+    margin: 14px;
+}
+
+.heart {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+}
+
+#training-number {
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    background: #e7ebf0;
+    font-family: 'Trebuchet MS';
+    color: #5682a3;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.picture-container {
+    float: left;
+    width: 100%;
+    margin-top: -27px;
+}
+
+#card-picture {
+    margin: 0 auto;
+    width: 100px;
+    height: 83.188px;
+    border: 2px solid #d5d5d5;
+    border-radius: 5px;
+    display: block;
+}
+
+#next-button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #5682a3;
+    cursor: pointer;
+    margin-left: auto;
+    right: 20px;
+    margin-top: 16px;
+    display: none;
+    z-index: 1;
+}
+
+.next-arrow {
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.card-lock {
+    width: 47px;
+    opacity: 0.3;
+    margin-top: -8px;
+    display: none;
+}
+
+#high-section {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    font-family: 'Trebuchet MS';
+    font-size: 20pt;
+    color: #6f6f6f;
+    text-align: center;
+}
+
+#middle-section {
+    font-size: 17pt;
+    margin: 0 auto;
+    text-align: center;
+    color: #6f6f6f;
+    font-family: 'Trebuchet MS';
+    width: 90%;
+}
+
+.finish-word #next-button {
+    display: block;
+}
+
+/*подсчитать и узнать, сколько занимает клавиатура и сделать равной ей*/
+#footer-section {
+    margin: 0 auto;
+    display: flex;
+    width: calc(100% - 50px);
+    height: calc(44% - 50px);
+    flex-flow: row wrap;
+    align-content: space-evenly;
+    justify-content: center;
+}
+
+.card {
+    margin: 50px 25px 0 25px;
+    background: white;
+    width: calc(100% - 50px);
+    height: calc(100% - 130px);
+    position: relative;
+    border: 2px solid white;
+}
+
+/*подсчитать и узнать, сколько занимает клавиатура и сделать равной ей*/
+.card-keyboard {
+    margin: 50px 25px 0 25px;
+    background: white;
+    width: calc(100% - 50px);
+    height: 53%;
+    position: relative;
+    border: 2px solid white;
+}
+
+#transcription {
+    font-family: 'Trebuchet MS';
+    font-size: 1.42857em;
+    color: #5682a3;
+    line-height: 35px;
+    margin-left: 12px;
+}
+
+.audio-wrap {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #5682a3;
+    border-radius: 50%;
+    position: relative;
+    /*display: none;*/
+}
+
+.audio-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent #5682a3;
+    margin-left: 2px;
+}
+
+.card-content-container {
+    width: 100%;
+    height: calc(100% - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.finish-word .card, .finish-word .card-keyboard {
+    border: 2px solid #35c242;
+}
+
+.error-word .card, .error-word .card-keyboard {
+    border: 2px solid red;
+}
+
+#low-section {
+    display: flex;
+    justify-content: center;
+    height: 39px;
+}
+
+.finish-word .audio-wrap {
+    display: block;
+}
+
+.finish-word .card-lock {
+    display: none;
+}
+
+.finish-word #transcription {
+    display: block;
+}
+
+.finish-word #card-picture {
+    display: block !important;
+}
+
+.finish-word .card-picture-lock {
+    display: none;
+}
+
+.next-image {
+    display: none;
+}
+
+@media screen and ( max-height: 400px ) {
+    .card {
+        margin: 0;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+    }
+
+    .card-keyboard {
+        margin: 0;
+        width: calc(100% - 4px);
+        height: 70%;
+    }
+
+    .card .card-content-container {
+        height: calc(100% - 89px) !important;
+    }
+
+    .card-keyboard .card-content-container {
+        height: calc(100% - 77px) !important;
+    }
+
+    #train-container {
+        max-width: 100%;
+    }
+
+    .picture-container {
+        margin-top: 5px;
+    }
+
+    #next-button {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    #high-section {
+        font-size: 17pt;
+    }
+
+    #card-picture {
+        width: 74px;
+        height: 61.55912px;
+    }
+
+    #transcription {
+        font-size: 1.22857em;
+    }
+
+    .audio-wrap {
+        width: 30px;
+        height: 30px;
+    }
+
+    .card-picture-lock {
+        width: 74px;
+    }
+
+}
+
+/*типа запрет ротации моб устройства*/
+@media only screen and (min-width: 415px) and (max-width: 1279px) {
+    body {
+        display: none
+    }
+
+    html:before {
+        content: 'Переверните устройство в портретный режим';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        width: 80%;
+        height: 80px;
+        font-family: 'Trebuchet MS';
+        font-size: 16pt;
+        color: #6f6f6f;
+    }
+}

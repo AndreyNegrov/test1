@@ -1,0 +1,144 @@
+<style>
+
+    .card-keyboard {
+        margin: 50px 25px 0 25px;
+        background: white;
+        width: calc(100% - 50px);
+        height: 67%;
+    }
+
+    .card-content-container {
+        width: 100%;
+        height: calc(100% - 58px);
+    }
+
+    .button-word {
+        padding: 20px 0;
+        margin: 0 5px;
+        font-family: 'Trebuchet MS';
+        color: white;
+        font-size: 16pt;
+        line-height: 0;
+        width: 108px;
+    }
+
+    .red-background {
+        background: red;
+    }
+
+    .green-background {
+        background: #35c242;
+    }
+
+    #middle-section {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-evenly;
+        justify-content: center;
+        font-size: 18pt;
+        height: 50px;
+    }
+
+    .finish-word #middle-section {
+        display: none;
+    }
+
+    #high-section {
+        height: 10px;
+    }
+
+    #card-picture {
+        display: none;
+    }
+
+    .button-word.error-word {
+        background: red;
+        color: #e7ebf0;
+    }
+    .button-word.finish-word {
+        background: #35c242;
+        color: #e7ebf0;
+    }
+
+
+    .finish-word .result-words {
+        display: flex;
+    }
+
+    .result-words {
+        height: 50px;
+        flex-direction: column;
+        align-content: space-evenly;
+        justify-content: center;
+        font-size: 18pt;
+        display: none;
+    }
+
+    .bad-word .wrong-word {
+        display: block;
+    }
+
+    .wrong-word {
+        color: #ff0000;
+        text-decoration: line-through;
+        font-family: 'Trebuchet MS';
+        text-align: center;
+        display: none;
+    }
+
+    .right-word {
+        color: #35c242;
+        text-align: center;
+    }
+
+    .wrong-word, .right-word {
+        font-size: 18pt;
+    }
+
+
+    @media screen and ( max-height: 400px )
+    {
+        .button-word {
+            padding: 8px;
+            margin: 3px;
+            font-size: 15pt;
+        }
+    }
+
+</style>
+
+<audio id="error-player" src="../../trainings/General/sounds/error.mp3"></audio>
+<audio id="success-player" src="../../trainings/YesNoTraining/sms.mp3"></audio>
+
+<div id="train-container">
+    <div class="card-keyboard">
+
+        <div id="life-container"></div>
+        <div id="training-number"></div>
+
+        <div class="picture-container">
+            <img class="card-picture-lock" src="../../trainings/General/images/lock.jpg">
+            <img id="card-picture" style="display: none">
+        </div>
+
+        <div class="card-content-container">
+            <div id="high-section"></div>
+
+            <div id="middle-section"></div>
+
+            <div class="result-words">
+                <div class="right-word"></div>
+                <div class="wrong-word"></div>
+            </div>
+
+            <div id="low-section">
+                <div id="wrong-button" class="button-word red-background">неверно</div>
+                <div id="right-button" class="button-word green-background">верно</div>
+            </div>
+        </div>
+
+    </div>
+    <button id="next-button">
+        <img src="../../trainings/General/images/right-arrow.png" class="next-arrow">
+    </button>
+</div>
